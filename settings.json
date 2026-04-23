@@ -1,0 +1,6 @@
+{
+  "remind_hour": 14,
+  "remind_start_minute": 0,
+  "remind_end_minute": 10,
+  "check_interval_seconds": 30
+}
