@@ -47,7 +47,6 @@ def send_notification(message):
         timeout=10
     )
 already_reminded_days = set()
-stop_event = threading.Event()
 # 用于控制后台循环停止
 stop_event = threading.Event()
 def should_trigger(now, remind_hour, remind_start_minute, remind_end_minute):
