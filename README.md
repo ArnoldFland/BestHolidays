@@ -37,9 +37,7 @@ BestHolidays 是一个面向 Windows 的休息日提醒小工具。
 
 ### 使用打包版本
 
-下载 Release 中的压缩包后，解压整个文件夹。
-
-请注意：不要只单独拿出 `scheduler.exe` 运行。程序需要依赖同目录下的 `_internal` 文件夹。
+注意：不要只单独拿出 `scheduler.exe` 运行。程序需要依赖同目录下的 `_internal` 文件夹。
 
 解压后的目录结构通常类似：
 
