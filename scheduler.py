@@ -24,17 +24,19 @@ def load_settings(filename="settings.json"):
     读取设置文件。
     """
     file_path = resource_path(filename)
-
     with open(file_path, "r", encoding="utf-8") as f:
         return json.load(f)
 def write_log(message):
     """
     写入日志。
-    注意：打包后 scheduler.log 会写在程序运行目录或资源路径附近。
+    日志固定写到 scheduler.py 所在目录，方便排查问题。
     """
-    log_path = resource_path("scheduler.log")
+    if getattr(sys, "frozen", False):
+        base_path = os.path.dirname(sys.executable)
+    else:
+        base_path = os.path.dirname(os.path.abspath(__file__))
+    log_path = os.path.join(base_path, "scheduler.log")
     now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
     with open(log_path, "a", encoding="utf-8") as f:
         f.write(f"[{now_str}] {message}\n")
 def send_notification(message):
