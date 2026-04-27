@@ -1,12 +1,21 @@
 # -*- mode: python ; coding: utf-8 -*-
-
-
 a = Analysis(
     ['scheduler.py'],
     pathex=[],
     binaries=[],
-    datas=[('holidays.json', '.'), ('settings.json', '.')],
-    hiddenimports=['main', 'plyer.platforms.win.notification', 'plyer.platforms.win.libs.balloontip'],
+    datas=[
+        ('holidays.json', '.'),
+        ('settings.json', '.'),
+        ('holiday.ico', '.'),
+    ],
+    hiddenimports=[
+        'main',
+        'plyer.platforms.win.notification',
+        'plyer.platforms.win.libs.balloontip',
+        'pystray',
+        'PIL',
+        'PIL.Image',
+    ],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
@@ -15,7 +24,6 @@ a = Analysis(
     optimize=0,
 )
 pyz = PYZ(a.pure)
-
 exe = EXE(
     pyz,
     a.scripts,
@@ -27,6 +35,7 @@ exe = EXE(
     strip=False,
     upx=True,
     console=False,
+    icon='holiday.ico',
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
